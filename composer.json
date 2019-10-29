@@ -2,7 +2,6 @@
   "name": "moritzdemmer/mdbackendmodule",
   "description": "cooles modul",
   "type": "oxideshop-module",
-  "minimum-stability": "stable",
   "extra": {
     "oxideshop": {
       "target-directory": "mdbackendmodule"
