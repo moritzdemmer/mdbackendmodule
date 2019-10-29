@@ -5,7 +5,7 @@ class VoucherSerieGroups extends VoucherSerieGroups_parent
 {
     public function render()
     {
-    $this->getBirthdayChildsGroup();
+$this->getBirthdayChildsGroup();
        return parent::render();
     }
 
@@ -39,13 +39,32 @@ class VoucherSerieGroups extends VoucherSerieGroups_parent
         $objectIDsql = "SELECT oxobjectid FROM oxobject2group WHERE oxgroupsid = 'oxidbirthdaychilds'";
         $objectIDresultSet = \OxidEsales\Eshop\Core\DatabaseProvider::getDb()->select($objectIDsql);
 
-        $allResults = $objectIDresultSet->fetchAll();
+        $objectIDallResults = $objectIDresultSet->fetchAll();
         $objectIDresult = array();
-        foreach($allResults as $row) {
+        foreach($objectIDallResults as $row) {
             $objectIDresult[]= $row[0];
         };
-    echo $objectIDresult[0];
-        $usersql = "SELECT oxusername FROM oxuser WHERE oxid = 'oxidbirthdaychilds'";
+
+        $oxidsql = "SELECT oxid FROM oxuser";
+        $oxidresultSet = \OxidEsales\Eshop\Core\DatabaseProvider::getDb()->select($oxidsql);
+
+        $oxidallResults = $oxidresultSet->fetchAll();
+        $oxidresult = array();
+        foreach($oxidallResults as $row) {
+            $oxidresult[]= $row[0];
+        };
+        for( $i=0; $i<sizeof($objectIDresult);$i++)
+        {
+            if(in_array($objectIDresult($i), $oxidresult))
+            {
+                $oxidgroup[] = $objectIDresult($i);
+            }
+
+        }
+       echo $oxidgroup[0];
+
+
+
 
 
     }
