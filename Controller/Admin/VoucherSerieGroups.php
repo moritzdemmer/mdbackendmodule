@@ -53,16 +53,16 @@ $this->getBirthdayChildsGroup();
         foreach($oxidallResults as $row) {
             $oxidresult[]= $row[0];
         };
-        echo $oxidresult[1];
-      /*  for( $i=0; $i<sizeof($objectIDresult);$i++)
+
+     for( $i=0; $i<sizeof($objectIDresult);$i++)
         {
-            if(in_array($objectIDresult($i), $oxidresult))
+            if(in_array($objectIDresult[$i], $oxidresult))
             {
-                $oxidgroup[] = $objectIDresult($i);
+                $oxidgroup[] = $objectIDresult[$i];
             }
 
         }
-       echo $oxidgroup[0];*/
+       echo $oxidgroup[0];
 
 
 
