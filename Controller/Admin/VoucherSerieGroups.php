@@ -39,6 +39,7 @@ $this->getBirthdayChildsGroup();
         $objectIDsql = "SELECT oxobjectid FROM oxobject2group WHERE oxgroupsid = 'oxidbirthdaychilds'";
         $objectIDresultSet = \OxidEsales\Eshop\Core\DatabaseProvider::getDb()->select($objectIDsql);
         $oxidgroup = array();
+        $oxusernames = array();
         $objectIDallResults = $objectIDresultSet->fetchAll();
         $objectIDresult = array();
         foreach($objectIDallResults as $row) {
@@ -62,8 +63,20 @@ $this->getBirthdayChildsGroup();
             }
 
         }
-       echo $oxidgroup[2];
+     for($i =0; $i<sizeof($oxidgroup);$i++) {
 
+         $oxidsql = "SELECT oxusername FROM oxuser WHERE oxid =$oxidgroup[$i]";
+         $oxidresultSet = \OxidEsales\Eshop\Core\DatabaseProvider::getDb()->select($oxidsql);
+
+         $oxidallResults = $oxidresultSet->fetchAll();
+
+         foreach ($oxidallResults as $row) {
+             $oxusernames[] = $row[0];
+         }
+
+
+     }
+     echo $oxusernames[0];
 
 
 
