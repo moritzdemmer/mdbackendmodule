@@ -5,7 +5,6 @@ class VoucherSerieGroups extends VoucherSerieGroups_parent
 {
     public function render()
     {
-echo "Moin";
 
        return parent::render();
     }
