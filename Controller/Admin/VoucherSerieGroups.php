@@ -38,7 +38,7 @@ $this->getBirthdayChildsGroup();
 
         $objectIDsql = "SELECT oxobjectid FROM oxobject2group WHERE oxgroupsid = 'oxidbirthdaychilds'";
         $objectIDresultSet = \OxidEsales\Eshop\Core\DatabaseProvider::getDb()->select($objectIDsql);
-
+        $oxidgroup = array();
         $objectIDallResults = $objectIDresultSet->fetchAll();
         $objectIDresult = array();
         foreach($objectIDallResults as $row) {
