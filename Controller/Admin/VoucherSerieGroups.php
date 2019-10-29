@@ -62,7 +62,7 @@ $this->getBirthdayChildsGroup();
             }
 
         }
-       echo $oxidgroup[0];
+       echo $oxidgroup[1];
 
 
 
