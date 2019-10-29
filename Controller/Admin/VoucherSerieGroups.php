@@ -66,7 +66,7 @@ $this->getBirthdayChildsGroup();
 
      for($i =0; $i<sizeof($oxidgroup);$i++) {
 
-         $oxuseridsql = "SELECT oxusername FROM oxuser WHERE oxid =$oxidgroup[$i]";
+         $oxuseridsql = "SELECT oxusername FROM oxuser WHERE oxid = .$oxidgroup[$i]";
          $oxuserresultSet= \OxidEsales\Eshop\Core\DatabaseProvider::getDb()->select($oxuseridsql);
 
          $oxusersAllResult = $oxuserresultSet->fetchAll();
