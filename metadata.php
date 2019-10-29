@@ -14,6 +14,7 @@ $aModule = [
     ),
     'blocks' => array(
         array('template' => 'layout/page.tpl', 'block'=>'content_main', 'file'=>'/views/blocks/md_start.tpl'),
+        array('template' => 'admin/tpl/voucherserie_groups.tpl', 'block'=>'admin_voucherserie_groups_form', 'file'=>'/views/blocks/voucherserie_groups.tpl')
     ),
 
     'settings' => array(
@@ -25,7 +26,7 @@ $aModule = [
     ),
 
     'extend' => array (
-        \OxidEsales\Eshop\Application\Controller\Admin\VoucherSerieGroups::class => 'mdbackendmodule/Controller/Admin/VoucherSerieGroups'
+        \OxidEsales\Eshop\Application\Controller\Admin\VoucherSerieGroups::class => \OxidEsales\MdModul\Controller\Admin\VoucherSerieGroups::class
     )
 
 ];
