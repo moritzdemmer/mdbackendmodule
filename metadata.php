@@ -13,8 +13,8 @@ $aModule = [
 
     ),
     'blocks' => array(
-        array('template' => 'layout/page.tpl', 'block'=>'content_main', 'file'=>'/views/blocks/md_start.tpl'),
-        array('template' => 'admin/tpl/voucherserie_groups.tpl', 'block'=>'admin_voucherserie_groups_form', 'file'=>'/views/blocks/voucherserie_groups.tpl')
+        array('template' => 'layout/page.tpl', 'block'=>'content_main', 'file'=>'/views/blocks/md_start.tpl')
+    
     ),
 
     'settings' => array(
