@@ -30,7 +30,7 @@ class VoucherSerieGroups extends VoucherSerieGroups_parent
         foreach($allResults as $row) {
             $results[]= $row[0];
         };
-        echo $results[0];
+        echo $results[1];
         return $results;
     }
 
