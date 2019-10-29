@@ -63,14 +63,15 @@ $this->getBirthdayChildsGroup();
             }
 
         }
+
      for($i =0; $i<sizeof($oxidgroup);$i++) {
 
-         $oxidsql = "SELECT oxusername FROM oxuser WHERE oxid =$oxidgroup[$i]";
-         $oxidresultSet = \OxidEsales\Eshop\Core\DatabaseProvider::getDb()->select($oxidsql);
+         $oxuseridsql = "SELECT oxusername FROM oxuser WHERE oxid =$oxidgroup[$i]";
+         $oxuserresultSet= \OxidEsales\Eshop\Core\DatabaseProvider::getDb()->select($oxuseridsql);
 
-         $oxidallResults = $oxidresultSet->fetchAll();
+         $oxusersAllResult = $oxuserresultSet->fetchAll();
 
-         foreach ($oxidallResults as $row) {
+         foreach ($oxusersAllResult as $row) {
              $oxusernames[] = $row[0];
          }
 
