@@ -36,7 +36,7 @@ class VoucherSerieGroups extends VoucherSerieGroups_parent
     public function getBirthdayChildsGroup()
     {
 
-        $objectIDsql = "SELECT oxobjectid FROM oxobject2group WHERE oxgroupid = 'oxidbirthdaychilds'";
+        $objectIDsql = "SELECT oxobjectid FROM oxobject2group WHERE oxgroupsid = 'oxidbirthdaychilds'";
         $objectIDresultSet = \OxidEsales\Eshop\Core\DatabaseProvider::getDb()->select($objectIDsql);
 
         $allResults = $objectIDresultSet->fetchAll();
