@@ -1,9 +1,11 @@
-[{block name="admin_voucher_birthday_form"}]
-    [{assign var="birthdaychilds" value=$oView->getBirthday()}]
+<td>
+
+    [{assign var="birthdaychilds" value=$oView->getBirthdayChilds()}]
     [{php}]
     $birthdaychilds =  $this->get_template_vars('birthdaychilds');
-
     [{/php}]
+
+
     <select class="multiselect1" name="myselecttsms1"  size="10" style="height:400px; width:150px;">
         [{php}]
         for ($i = 0; $i < sizeof($birthdaychilds); $i++)
@@ -12,15 +14,27 @@
         }
         [{/php}]
     </select>
+    [{assign var="birthdaychildsgroup" value=$oView->getBirthdayChildsGroup()}]
+    [{php}]
+    $birthdaychildsgroup =  $this->get_template_vars('birthdaychildsgroup');
+    [{/php}]
+
     <select multiple="true" class="multiselect2" name="myselecttsms2" size="10" style="height:400px; width:150px;">
-
+        [{php}]
+        for ($i = 0; $i < sizeof($birthdaychildsgroup); $i++)
+        {
+        echo "<option value='$birthdaychildsgroup[$i]'>" . $birthdaychildsgroup[$i]. "</option>";
+        }
+        [{/php}]
     </select>
+    <p>  <input type="button" value="Speichern" onclick="{assign var="lol" value=$oView->test()}""></p>
 
 
-    <button class="add">Add</button>
-    <button class="addAll">Add All</button>
-    <button class="remove">Remove</button>
-    <button class="removeAll">Remove All</button>
+
+    <button class="add">Hinzufügen</button>
+    <button class="addAll">Alle hinzufügen</button>
+    <button class="remove">Entfernen</button>
+    <button class="removeAll">Alle entfernen</button>
     <script type="text/javascript">
         $('.add').on('click', function() {
             var options = $('select.multiselect1 option:selected').sort().clone();
@@ -37,5 +51,5 @@
             $('select.multiselect2').empty();
         });
     </script>
-    [{/block}]
+
 </td>
