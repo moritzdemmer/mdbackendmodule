@@ -127,11 +127,7 @@ class VoucherSerieGroups extends VoucherSerieGroups_parent
             echo $usersbirthday[$i];
         }
          $userbirthdaygroup = $this->getBirthdayChildsGroup(false);
-        for($i=0; $i<count($userbirthdaygroup);$i++)
-        {
-            echo  $userbirthdaygroup[$i];
-        }
-
+       
          $newusersadd = array_diff($usersbirthday, $userbirthdaygroup);
 
       /*  for ($i = 0; $i < sizeof($newusersadd); $i++) {
