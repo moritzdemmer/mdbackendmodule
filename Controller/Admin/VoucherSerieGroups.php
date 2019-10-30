@@ -42,7 +42,7 @@ class VoucherSerieGroups extends VoucherSerieGroups_parent
 
         $objectIDsql = "SELECT oxobjectid FROM oxobject2group WHERE oxgroupsid = 'oxidbirthdaychilds'";
         $objectIDresultSet = \OxidEsales\Eshop\Core\DatabaseProvider::getDb()->select($objectIDsql);
-        $oxidgroup = array();
+
         $oxusernames = array();
         $objectIDallResults = $objectIDresultSet->fetchAll();
         $objectIDresult = array();
@@ -50,11 +50,11 @@ class VoucherSerieGroups extends VoucherSerieGroups_parent
             $objectIDresult[] = $row[0];
         }
 
-
-        for ($i = 0; $i <= sizeof($objectIDresult); $i++) {
+    echo $objectIDresult[0];
+        for ($i = 0; $i < sizeof($objectIDresult); $i++) {
 
             $oxuseridsql = "SELECT oxusername FROM oxuser WHERE oxid = '$objectIDresult[$i]'";
-           echo $objectIDresult[$i];
+
             $oxuserresultSet = \OxidEsales\Eshop\Core\DatabaseProvider::getDb()->select($oxuseridsql);
 
             $oxusersAllResult = $oxuserresultSet->fetchAll();
