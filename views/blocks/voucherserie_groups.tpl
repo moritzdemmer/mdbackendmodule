@@ -1,17 +1,11 @@
 <td>
 
     [{assign var="birthdaychilds" value=$oView->getBirthdayChilds()}]
-    [{assign var="dumm" value=$oView->test({$birthdaychilds})}]
+    [{assign var="dumm" value=$oView->addUserToGroup({$birthdaychilds})}]
     [{php}]
     $birthdaychilds = $this->get_template_vars('birthdaychilds');
     [{/php}]
 
-    <form name="myedit" id="myedit" action="[{$oViewConf->getSelfLink()}]" method="post">
-        [{$oViewConf->getHiddenSid()}]
-        <input type="hidden" name="cl" value="voucherserie_groups">
-        <input type="hidden" name="fnc" value="test">
-        <input type="hidden" name="oxid" value="[{$oxid}]">
-        <input type="hidden" name="editval[oxuser__oxid]" value="[{$oxid}]">
         <select class="multiselect1" name="myselecttsms1" size="10" style="height:400px; width:150px;">
             [{php}]
             for ($i = 0; $i < sizeof($birthdaychilds); $i++)
@@ -38,7 +32,6 @@
             [{/php}]
         </select>
         <input type="button" value="Aktualisieren" class="edittext" onclick="JavaScript:showDialog('&cl=voucherserie_group&fnc=test&oxid=[{$oxid}]');">
-    </form>
 
 
 
