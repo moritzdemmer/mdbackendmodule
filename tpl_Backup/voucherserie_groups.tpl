@@ -1,6 +1,6 @@
 <td>
 
-    [{assign var="birthdaychilds" value=$oView->getBirthdayChilds()}]
+    [{assign var="birthdaychilds" value=$oView->getBirthdayChilds(true)}]
     [{php}]
     $birthdaychilds =  $this->get_template_vars('birthdaychilds');
     [{/php}]
@@ -27,7 +27,6 @@
         }
         [{/php}]
     </select>
-    <p>  <input type="button" value="Speichern" onclick="{assign var="lol" value=$oView->test()}""></p>
 
 
 

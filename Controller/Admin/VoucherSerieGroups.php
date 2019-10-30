@@ -1,4 +1,5 @@
 <?php
+
 namespace OxidEsales\MdModul\Controller\Admin;
 
 class VoucherSerieGroups extends VoucherSerieGroups_parent
@@ -6,12 +7,13 @@ class VoucherSerieGroups extends VoucherSerieGroups_parent
     public function render()
     {
 
-       return parent::render();
+        return parent::render();
     }
 
-    public function getBirthdayChilds()
+    public function getBirthdayChilds($bool)
     {
-
+    if ($bool)
+    {
         $today_date = getdate();
         if ($today_date["mon"] < 10)
             $birthmonth = "0" . $today_date["mon"];
@@ -21,17 +23,45 @@ class VoucherSerieGroups extends VoucherSerieGroups_parent
             $birthday = "0" . $today_date["mday"];
         else
             $birthday = $today_date["mday"];
-        $sSql = "SELECT oxusername FROM oxuser WHERE oxbirthdate LIKE '%-".$birthmonth."-".$birthday."'";
+        $sSql = "SELECT oxusername FROM oxuser WHERE oxbirthdate LIKE '%-" . $birthmonth . "-" . $birthday . "'";
         $resultSet = \OxidEsales\Eshop\Core\DatabaseProvider::getDb()->select($sSql);
 
         $allResults = $resultSet->fetchAll();
         $results = array();
-        foreach($allResults as $row) {
-            $results[]= $row[0];
+        foreach ($allResults as $row) {
+            $results[] = $row[0];
         };
-     
+
         return $results;
     }
+    else
+    {
+        $today_date = getdate();
+        if ($today_date["mon"] < 10)
+            $birthmonth = "0" . $today_date["mon"];
+        else
+            $birthmonth = $today_date["mon"];
+        if ($today_date["mday"] < 10)
+            $birthday = "0" . $today_date["mday"];
+        else
+            $birthday = $today_date["mday"];
+        $sSql = "SELECT oxid FROM oxuser WHERE oxbirthdate LIKE '%-" . $birthmonth . "-" . $birthday . "'";
+        $resultSet = \OxidEsales\Eshop\Core\DatabaseProvider::getDb()->select($sSql);
+
+        $allResults = $resultSet->fetchAll();
+        $results = array();
+        foreach ($allResults as $row) {
+            $results[] = $row[0];
+        };
+
+        return $results;
+    }
+
+
+
+
+    }
+
     public function getBirthdayChildsGroup()
     {
 
@@ -78,18 +108,16 @@ class VoucherSerieGroups extends VoucherSerieGroups_parent
     }
 
 
-
-    public function addUserToGroup($birthdaychilds)
+    public function addUserToGroup()
     {
-        $usersbirthday = $birthdaychilds;
+        $usersbirthday = $this->getBirthdayChilds(false);
         $userbirthdaygroup = $this->getBirthdayChildsGroup();
         $newusersadd = array_diff($usersbirthday, $userbirthdaygroup);
-        for($i =0; $i<sizeof($newusersadd); $i++)
-        {
+        for ($i = 0; $i < sizeof($newusersadd); $i++) {
             $oNewGroup = oxNew(\OxidEsales\Eshop\Application\Model\Object2Group::class);
-      $oNewGroup->oxobject2group__oxobjectid = new \OxidEsales\Eshop\Core\Field($newusersadd[$i]);
-      $oNewGroup->oxobject2group__oxgroupsid = new \OxidEsales\Eshop\Core\Field('oxidbirthdaychilds');
-      $oNewGroup->save();
+            $oNewGroup->oxobject2group__oxobjectid = new \OxidEsales\Eshop\Core\Field($newusersadd[$i]);
+            $oNewGroup->oxobject2group__oxgroupsid = new \OxidEsales\Eshop\Core\Field('oxidbirthdaychilds');
+            $oNewGroup->save();
         }
 
     }
