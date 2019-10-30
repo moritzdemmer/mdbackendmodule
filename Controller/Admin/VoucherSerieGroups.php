@@ -122,8 +122,8 @@ class VoucherSerieGroups extends VoucherSerieGroups_parent
     public function addUserToGroup()
     {
         $objectIDsql = "DELETE oxobjectid FROM oxobject2group WHERE oxgroupsid = 'oxidbirthdaychilds'";
-        $objectIDresultSet = \OxidEsales\Eshop\Core\DatabaseProvider::getDb()->select($objectIDsql);
-        $objectIDresultSet->fetchAll();
+        $objectIDresultSet = \OxidEsales\Eshop\Core\DatabaseProvider::getDb()->execute($objectIDsql);
+    
         $usersbirthday = $this->getBirthdayChilds(false);
        
          $userbirthdaygroup = $this->getBirthdayChildsGroup(false);
