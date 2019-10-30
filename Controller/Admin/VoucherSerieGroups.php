@@ -124,13 +124,13 @@ class VoucherSerieGroups extends VoucherSerieGroups_parent
         $usersbirthday = $this->getBirthdayChilds(false);
          $userbirthdaygroup = $this->getBirthdayChildsGroup(false);
          $newusersadd = array_diff($usersbirthday, $userbirthdaygroup);
-
-        for ($i = 0; $i < sizeof($newusersadd); $i++) {
+echo $newusersadd[0];
+      /*  for ($i = 0; $i < sizeof($newusersadd); $i++) {
             $oNewGroup = oxNew(\OxidEsales\Eshop\Application\Model\Object2Group::class);
             $oNewGroup->oxobject2group__oxobjectid = new \OxidEsales\Eshop\Core\Field($newusersadd[$i]);
             $oNewGroup->oxobject2group__oxgroupsid = new \OxidEsales\Eshop\Core\Field('oxidbirthdaychilds');
             $oNewGroup->save();
-        }
+        }*/
 
     }
 }
