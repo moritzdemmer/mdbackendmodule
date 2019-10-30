@@ -10,7 +10,7 @@
   },
   "autoload": {
     "psr-4": {
-      "OxidEsales\\MdBackendModule\\": ""
+      "OxidEsales\\MdBackendModule\\": "source/mdbackendmodule"
     }
   }
 }
