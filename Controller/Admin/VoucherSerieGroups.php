@@ -118,24 +118,25 @@ class VoucherSerieGroups extends VoucherSerieGroups_parent
         }
     }
 
-
-    public function addUserToGroup()
+    public function resetBirthdayGroup()
     {
         $objectIDsql = "DELETE FROM oxobject2group WHERE oxgroupsid = 'oxidbirthdaychilds'";
         $objectIDresultSet = \OxidEsales\Eshop\Core\DatabaseProvider::getDb()->execute($objectIDsql);
-    
+    }
+    public function addUserToGroup()
+    {
+
+        $this->resetBirthdayGroup();
         $usersbirthday = $this->getBirthdayChilds(false);
-       
-         $userbirthdaygroup = $this->getBirthdayChildsGroup(false);
 
 
 
-      /*  for ($i = 0; $i < sizeof($newusersadd); $i++) {
+    for ($i = 0; $i < sizeof($usersbirthday); $i++) {
             $oNewGroup = oxNew(\OxidEsales\Eshop\Application\Model\Object2Group::class);
-            $oNewGroup->oxobject2group__oxobjectid = new \OxidEsales\Eshop\Core\Field($newusersadd[$i]);
+            $oNewGroup->oxobject2group__oxobjectid = new \OxidEsales\Eshop\Core\Field($usersbirthday[$i]);
             $oNewGroup->oxobject2group__oxgroupsid = new \OxidEsales\Eshop\Core\Field('oxidbirthdaychilds');
             $oNewGroup->save();
-        }*/
+        }
 
     }
 }
