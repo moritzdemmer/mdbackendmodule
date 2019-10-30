@@ -74,7 +74,7 @@ class VoucherSerieGroups extends VoucherSerieGroups_parent
         $objectIDresult = array();
         foreach ($objectIDallResults as $row) {
             $objectIDresult[] = $row[0];
-        };
+        }
 
         $oxidsql = "SELECT oxid FROM oxuser";
         $oxidresultSet = \OxidEsales\Eshop\Core\DatabaseProvider::getDb()->select($oxidsql);
@@ -109,14 +109,16 @@ class VoucherSerieGroups extends VoucherSerieGroups_parent
     else{
         $objectIDsql = "SELECT oxobjectid FROM oxobject2group WHERE oxgroupsid = 'oxidbirthdaychilds'";
         $objectIDresultSet = \OxidEsales\Eshop\Core\DatabaseProvider::getDb()->select($objectIDsql);
-
+        $oxidgroup = array();
+        $oxusernames = array();
         $objectIDallResults = $objectIDresultSet->fetchAll();
         $objectIDresult = array();
         foreach ($objectIDallResults as $row) {
             $objectIDresult[] = $row[0];
-        };
-    return $objectIDresult;
+        }
+        return $objectIDresult;
     }
+
 
 
     }
@@ -125,7 +127,7 @@ class VoucherSerieGroups extends VoucherSerieGroups_parent
     public function addUserToGroup()
     {
         $usersbirthday = $this->getBirthdayChilds(false);
-        $userbirthdaygroup = $this->getBirthdayChildsGroup();
+        $userbirthdaygroup = $this->getBirthdayChildsGroup(false);
         $newusersadd = array_diff($usersbirthday, $userbirthdaygroup);
         for ($i = 0; $i < sizeof($newusersadd); $i++) {
             $oNewGroup = oxNew(\OxidEsales\Eshop\Application\Model\Object2Group::class);
