@@ -5,7 +5,7 @@ class VoucherSerieGroups extends VoucherSerieGroups_parent
 {
     public function render()
     {
-$this->getBirthdayChildsGroup();
+
        return parent::render();
     }
 
@@ -77,7 +77,7 @@ $this->getBirthdayChildsGroup();
 
 
      }
-     echo $oxusernames[0];
+    return $oxusernames;
 
 
 
