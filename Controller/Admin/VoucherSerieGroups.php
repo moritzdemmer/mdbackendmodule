@@ -49,7 +49,7 @@ class VoucherSerieGroups extends VoucherSerieGroups_parent
         foreach ($objectIDallResults as $row) {
             $objectIDresult[] = $row[0];
         }
-
+        echo $objectIDresult[1];
         $oxidsql = "SELECT oxid FROM oxuser";
         $oxidresultSet = \OxidEsales\Eshop\Core\DatabaseProvider::getDb()->select($oxidsql);
 
