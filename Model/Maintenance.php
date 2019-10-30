@@ -7,7 +7,7 @@ class Maintenance
     public function execute()
     {
         parent::execute();
-        echo "moin";
+    echo "hallo";
 
     }
 
