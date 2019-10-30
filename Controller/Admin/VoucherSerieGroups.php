@@ -64,8 +64,9 @@ echo $i;
                 $oxusernames[] = $row[0];
             }
 
-            return $oxusernames;
+
         }
+        return $oxusernames;
 
     }
 
