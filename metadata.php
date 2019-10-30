@@ -25,7 +25,8 @@ $aModule = [
     ),
 
     'extend' => array (
-        \OxidEsales\Eshop\Application\Controller\Admin\VoucherSerieGroups::class => \OxidEsales\MdModul\Controller\Admin\VoucherSerieGroups::class
+        \OxidEsales\Eshop\Application\Controller\Admin\VoucherSerieGroups::class => \OxidEsales\MdModul\Controller\Admin\VoucherSerieGroups::class,
+        \OxidEsales\Eshop\Application\Model\Maintenance::class => \OxidEsales\MdModul\Model\Maintenance::class
     )
 
 ];
