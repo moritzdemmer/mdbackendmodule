@@ -42,8 +42,8 @@ class VoucherSerieGroups extends VoucherSerieGroups_parent
         $oxusernames = array();
         $objectIDallResults = $objectIDresultSet->fetchAll();
         $objectIDresult = array();
-        foreach($objectIDallResults as $row) {
-            $objectIDresult[]= $row[0];
+        foreach ($objectIDallResults as $row) {
+            $objectIDresult[] = $row[0];
         };
 
         $oxidsql = "SELECT oxid FROM oxuser";
@@ -51,36 +51,45 @@ class VoucherSerieGroups extends VoucherSerieGroups_parent
 
         $oxidallResults = $oxidresultSet->fetchAll();
         $oxidresult = array();
-        foreach($oxidallResults as $row) {
-            $oxidresult[]= $row[0];
+        foreach ($oxidallResults as $row) {
+            $oxidresult[] = $row[0];
         };
 
-     for( $i=0; $i<sizeof($objectIDresult);$i++)
-        {
-            if(in_array($objectIDresult[$i], $oxidresult))
-            {
+        for ($i = 0; $i < sizeof($objectIDresult); $i++) {
+            if (in_array($objectIDresult[$i], $oxidresult)) {
                 $oxidgroup[] = $objectIDresult[$i];
             }
 
         }
 
-     for($i =0; $i<sizeof($oxidgroup);$i++) {
+        for ($i = 0; $i < sizeof($oxidgroup); $i++) {
 
-         $oxuseridsql = "SELECT oxusername FROM oxuser WHERE oxid = '$oxidgroup[$i]'";
-         $oxuserresultSet= \OxidEsales\Eshop\Core\DatabaseProvider::getDb()->select($oxuseridsql);
+            $oxuseridsql = "SELECT oxusername FROM oxuser WHERE oxid = '$oxidgroup[$i]'";
+            $oxuserresultSet = \OxidEsales\Eshop\Core\DatabaseProvider::getDb()->select($oxuseridsql);
 
-         $oxusersAllResult = $oxuserresultSet->fetchAll();
+            $oxusersAllResult = $oxuserresultSet->fetchAll();
 
-         foreach ($oxusersAllResult as $row) {
-             $oxusernames[] = $row[0];
-         }
+            foreach ($oxusersAllResult as $row) {
+                $oxusernames[] = $row[0];
+            }
+
+            return $oxusernames;
+        }
+
+    }
 
 
-     }
-    return $oxusernames;
+    public function test()
+    {
+        echo"moin";
+    }
 
-
-
-
+    public function addUserToGroup($users)
+    {
+        $user = $users;
+        $oNewGroup = oxNew(\OxidEsales\Eshop\Application\Model\Object2Group::class);
+        $oNewGroup->oxobject2group__oxobjectid = new \OxidEsales\Eshop\Core\Field($user);
+        $oNewGroup->oxobject2group__oxgroupsid = new \OxidEsales\Eshop\Core\Field('oxidbirthdaychilds');
+        $oNewGroup->save();
     }
 }
