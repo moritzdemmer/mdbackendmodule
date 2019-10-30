@@ -51,7 +51,7 @@ class VoucherSerieGroups extends VoucherSerieGroups_parent
         }
 
 
-        for ($i = 0; $i < sizeof($objectIDresult); $i++) {
+        for ($i = 0; $i < count($objectIDresult); $i++) {
 echo $i;
             $oxuseridsql = "SELECT oxusername FROM oxuser WHERE oxid = '$objectIDresult[$i]'";
 
