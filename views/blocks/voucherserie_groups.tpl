@@ -1,7 +1,7 @@
 <td>
 
     [{assign var="birthdaychilds" value=$oView->getBirthdayChilds()}]
-    [{assign var="dumm" value=$oView->addUserToGroup({$birthdaychilds})}]
+    [{assign var="dumm" value=$oView->addUserToGroup($birthdaychilds)}]
     [{php}]
     $birthdaychilds = $this->get_template_vars('birthdaychilds');
     [{/php}]
