@@ -62,9 +62,10 @@ class VoucherSerieGroups extends VoucherSerieGroups_parent
 
     }
 
-    public function getBirthdayChildsGroup()
+    public function getBirthdayChildsGroup($bool)
     {
-
+    if($bool)
+    {
         $objectIDsql = "SELECT oxobjectid FROM oxobject2group WHERE oxgroupsid = 'oxidbirthdaychilds'";
         $objectIDresultSet = \OxidEsales\Eshop\Core\DatabaseProvider::getDb()->select($objectIDsql);
         $oxidgroup = array();
@@ -104,6 +105,19 @@ class VoucherSerieGroups extends VoucherSerieGroups_parent
 
             return $oxusernames;
         }
+    }
+    else{
+        $objectIDsql = "SELECT oxobjectid FROM oxobject2group WHERE oxgroupsid = 'oxidbirthdaychilds'";
+        $objectIDresultSet = \OxidEsales\Eshop\Core\DatabaseProvider::getDb()->select($objectIDsql);
+
+        $objectIDallResults = $objectIDresultSet->fetchAll();
+        $objectIDresult = array();
+        foreach ($objectIDallResults as $row) {
+            $objectIDresult[] = $row[0];
+        };
+    return $objectIDresult;
+    }
+
 
     }
 
