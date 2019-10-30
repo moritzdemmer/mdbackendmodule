@@ -122,12 +122,13 @@ class VoucherSerieGroups extends VoucherSerieGroups_parent
     public function addUserToGroup()
     {
         $usersbirthday = $this->getBirthdayChilds(false);
-        for($i=0; $i<count($usersbirthday);$i++)
-        {
-            echo $usersbirthday[$i];
-        }
-         $userbirthdaygroup = $this->getBirthdayChildsGroup(false);
        
+         $userbirthdaygroup = $this->getBirthdayChildsGroup(false);
+        for($i=0; $i<count($userbirthdaygroup);$i++)
+        {
+            echo  $userbirthdaygroup[$i];
+        }
+
          $newusersadd = array_diff($usersbirthday, $userbirthdaygroup);
 
       /*  for ($i = 0; $i < sizeof($newusersadd); $i++) {
