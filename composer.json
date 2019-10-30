@@ -1,7 +1,8 @@
 {
-  "name": "moritzdemmer/mdbackendmodule",
+  "name": "md/mdbackendmodule",
   "description": "cooles modul",
   "type": "oxideshop-module",
+  "minimum-stability": "stable",
   "extra": {
     "oxideshop": {
       "target-directory": "mdbackendmodule"
@@ -9,7 +10,7 @@
   },
   "autoload": {
     "psr-4": {
-      "OxidEsales\\MdModul\\": ""
+      "OxidEsales\\MdBackendModule\\": ""
     }
   }
 }
