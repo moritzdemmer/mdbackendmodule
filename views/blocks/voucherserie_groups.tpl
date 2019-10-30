@@ -5,7 +5,7 @@
                 &nbsp;&nbsp;   &nbsp;&nbsp;   Geburtstagskinder &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Gutscheingruppe
                 <td>
 
-                    [{assign var="birthdaychilds" value=$oView->getBirthdayChilds()}]
+                    [{assign var="birthdaychilds" value=$oView->getBirthdayChilds(true)}]
                     [{assign var="dumm" value=$oView->addUserToGroup()}]
                     [{php}]
                     $birthdaychilds = $this->get_template_vars('birthdaychilds');
@@ -21,7 +21,7 @@
                         }
                         [{/php}]
                     </select>
-                    [{assign var="birthdaychildsgroup" value=$oView->getBirthdayChildsGroup()}]
+                    [{assign var="birthdaychildsgroup" value=$oView->getBirthdayChildsGroup(true)}]
                     [{php}]
                     $birthdaychildsgroup = $this->get_template_vars('birthdaychildsgroup');
                     [{/php}]
