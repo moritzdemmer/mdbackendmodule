@@ -50,7 +50,7 @@ class VoucherSerieGroups extends VoucherSerieGroups_parent
             $objectIDresult[] = $row[0];
         }
 
-    echo $objectIDresult[0];
+    echo $objectIDresult[1];
         for ($i = 0; $i < sizeof($objectIDresult); $i++) {
 
             $oxuseridsql = "SELECT oxusername FROM oxuser WHERE oxid = '$objectIDresult[$i]'";
@@ -72,9 +72,9 @@ class VoucherSerieGroups extends VoucherSerieGroups_parent
 
     public function addUserToGroup()
     {
-        $usersbirthday = $this->getBirthdayChilds();
+       /* $usersbirthday = $this->getBirthdayChilds();
         $userbirthdaygroup = $this->getBirthdayChildsGroup();
-        $newusersadd = array_diff($usersbirthday, $userbirthdaygroup);
+        $newusersadd = array_diff($usersbirthday, $userbirthdaygroup);*/
 
         /*for ($i = 0; $i < sizeof($newusersadd); $i++) {
             $oNewGroup = oxNew(\OxidEsales\Eshop\Application\Model\Object2Group::class);
