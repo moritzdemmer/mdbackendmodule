@@ -81,7 +81,6 @@ class VoucherSerieGroups extends VoucherSerieGroups_parent
 
     public function addUserToGroup($users)
     {
-        $users = $users;
         echo $users[0];
        /* $oNewGroup = oxNew(\OxidEsales\Eshop\Application\Model\Object2Group::class);
         $oNewGroup->oxobject2group__oxobjectid = new \OxidEsales\Eshop\Core\Field($users);
