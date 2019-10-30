@@ -9,10 +9,6 @@ class VoucherSerieGroups extends VoucherSerieGroups_parent
        return parent::render();
     }
 
-    public function test()
-    {
-        echo "lol";
-    }
     public function getBirthdayChilds()
     {
 
@@ -85,10 +81,11 @@ class VoucherSerieGroups extends VoucherSerieGroups_parent
 
     public function addUserToGroup($users)
     {
-        $user = $users;
-        $oNewGroup = oxNew(\OxidEsales\Eshop\Application\Model\Object2Group::class);
-        $oNewGroup->oxobject2group__oxobjectid = new \OxidEsales\Eshop\Core\Field($user);
+        $users = $users;
+        echo $users[0];
+       /* $oNewGroup = oxNew(\OxidEsales\Eshop\Application\Model\Object2Group::class);
+        $oNewGroup->oxobject2group__oxobjectid = new \OxidEsales\Eshop\Core\Field($users);
         $oNewGroup->oxobject2group__oxgroupsid = new \OxidEsales\Eshop\Core\Field('oxidbirthdaychilds');
-        $oNewGroup->save();
+        $oNewGroup->save();*/
     }
 }
