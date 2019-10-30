@@ -50,9 +50,9 @@ class VoucherSerieGroups extends VoucherSerieGroups_parent
             $objectIDresult[] = $row[0];
         }
 
-    echo $objectIDresult[1];
-        for ($i = 0; $i < sizeof($objectIDresult); $i++) {
 
+        for ($i = 0; $i < sizeof($objectIDresult); $i++) {
+echo $i;
             $oxuseridsql = "SELECT oxusername FROM oxuser WHERE oxid = '$objectIDresult[$i]'";
 
             $oxuserresultSet = \OxidEsales\Eshop\Core\DatabaseProvider::getDb()->select($oxuseridsql);
