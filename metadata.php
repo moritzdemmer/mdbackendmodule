@@ -14,7 +14,7 @@ $aModule = [
     ),
     'blocks' => array(
         array('template' => 'layout/page.tpl', 'block'=>'content_main', 'file'=>'/views/blocks/md_start.tpl'),
-        array('template' => 'admin/tpl/voucherserie_groups.tpl', 'block'=>'birthdaychilds', 'file'=>'/views/blocks/voucherserie_groups.tpl')
+        array('template' => 'voucherserie_groups.tpl', 'block'=>'birthdaychilds', 'file'=>'/views/blocks/voucherserie_groups.tpl')
     
     ),
 

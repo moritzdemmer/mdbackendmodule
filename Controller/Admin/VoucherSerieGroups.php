@@ -9,7 +9,10 @@ class VoucherSerieGroups extends VoucherSerieGroups_parent
        return parent::render();
     }
 
-
+    public function test()
+    {
+        echo "lol";
+    }
     public function getBirthdayChilds()
     {
 
@@ -79,10 +82,6 @@ class VoucherSerieGroups extends VoucherSerieGroups_parent
     }
 
 
-    public function test()
-    {
-        echo"moin";
-    }
 
     public function addUserToGroup($users)
     {
